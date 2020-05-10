@@ -15,7 +15,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -45,6 +45,9 @@ TagManager:
     locked: 0
   - name: Signs
     uniqueID: 110132163
+    locked: 0
+  - name: Breakable
+    uniqueID: 1554165623
     locked: 0
   - name: Player
     uniqueID: 3956358709

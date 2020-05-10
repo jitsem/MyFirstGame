@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 89107cc2605483c48b5b01a23193806f, type: 3}
-    totalSpriteSurfaceArea: 765212
+    totalSpriteSurfaceArea: 765505
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -1328,6 +1328,7 @@ SpriteAtlas:
   - {fileID: 1107736971085435061, guid: c025d82a2c0ae6a4aae5a344b9a2802a, type: 3}
   - {fileID: -377563455374678323, guid: c025d82a2c0ae6a4aae5a344b9a2802a, type: 3}
   - {fileID: 21300000, guid: 22fb9c7c5ca83814fa0d4307ca8cfadd, type: 3}
+  - {fileID: 21300000, guid: 041c29acdfa38e8439a17df24e46e282, type: 3}
   - {fileID: 21300000, guid: e54d026ec4b0ecf469c8d22bd7df62bf, type: 3}
   - {fileID: 3059174765694063163, guid: c7e028de1f6bb434faa909b5fc3ed657, type: 3}
   - {fileID: -34017176892466219, guid: c7e028de1f6bb434faa909b5fc3ed657, type: 3}
@@ -2897,6 +2898,7 @@ SpriteAtlas:
   - objects_109
   - objects_108
   - cave
+  - key
   - font
   - log_8
   - log_9

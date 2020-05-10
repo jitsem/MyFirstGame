@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     public FloatValue currentHealth;
     public VectorValue startingPosition;
     public Signal PlayerHealthSignal;
+    public Inventory playerInventory;
+
+    public SpriteRenderer receivedItemSprite;
+
     private Rigidbody2D m_RidigBody;
     private Vector3 change;
     private Animator m_Animator;
@@ -34,22 +38,24 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentState == PlayerState.interact)
+            return;
         change = Vector3.zero;
         change.x = Input.GetAxisRaw("Horizontal");
         change.y = Input.GetAxisRaw("Vertical");
-        if(Input.GetButtonDown("attack")
+        if (Input.GetButtonDown("attack")
         && currentState != PlayerState.attack
         && currentState != PlayerState.stagger)
         {
             StartCoroutine(AttackCo());
         }
-        else if(currentState == PlayerState.walk
+        else if (currentState == PlayerState.walk
         || currentState == PlayerState.idle)
         {
             UpdateAnimationAndMove();
         }
     }
-    
+
     private IEnumerator AttackCo()
     {
         currentState = PlayerState.attack;
@@ -57,11 +63,32 @@ public class PlayerMovement : MonoBehaviour
         yield return null;
         m_Animator.SetBool("attacking", false);
         yield return new WaitForSeconds(0.33f);
-        currentState = PlayerState.walk;        
+        if (currentState != PlayerState.interact)
+            currentState = PlayerState.walk;
+    }
+
+    public void RaiseItem()
+    {
+        if (playerInventory.currentItem != null)
+        {
+            if (currentState != PlayerState.interact)
+            {
+                m_Animator.SetBool("receivedItem", true);
+                currentState = PlayerState.interact;
+                receivedItemSprite.sprite = playerInventory.currentItem.itemSprite;
+            }
+            else
+            {
+                m_Animator.SetBool("receivedItem", false);
+                currentState = PlayerState.idle;
+                receivedItemSprite.sprite = null;
+                playerInventory.currentItem = null;
+            }
+        }
     }
     void UpdateAnimationAndMove()
     {
-        if(change != Vector3.zero)
+        if (change != Vector3.zero)
         {
             MoveCharacter();
             m_Animator.SetFloat("moveX", change.x);
@@ -80,12 +107,12 @@ public class PlayerMovement : MonoBehaviour
             transform.position + change * speed * Time.deltaTime
         );
     }
-    
+
     public void Knock(float knockTime, float damage)
     {
         currentHealth.runTimeValue -= damage;
         PlayerHealthSignal.Raise();
-        if(currentHealth.runTimeValue > 0)
+        if (currentHealth.runTimeValue > 0)
         {
             StartCoroutine(KnockCo(knockTime));
         }
@@ -97,7 +124,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator KnockCo(float knockTime)
     {
-        if(m_RidigBody != null)
+        if (m_RidigBody != null)
         {
             yield return new WaitForSeconds(knockTime);
             m_RidigBody.velocity = Vector2.zero;
