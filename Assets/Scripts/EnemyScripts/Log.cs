@@ -10,7 +10,7 @@ public class Log : Enemy
     public Transform homePosition;
     public Animator m_Animator;
 
-    private Rigidbody2D m_RigidBody;
+    protected Rigidbody2D m_RigidBody;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,7 @@ public class Log : Enemy
         m_Animator = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         currentState = EnemyState.Idle;
+        m_Animator.SetBool("wakeUp", true);
     }
 
     // Update is called once per frame
@@ -27,7 +28,7 @@ public class Log : Enemy
         CheckDistance();
     }
 
-    void CheckDistance()
+    protected virtual void CheckDistance()
     {
         if (Vector3.Distance(target.position, transform.position) <= chaseRadius
         && Vector3.Distance(target.position, transform.position) >= attackRadius)
@@ -54,7 +55,7 @@ public class Log : Enemy
         currentState = newState;
     }
 
-    private void ChangeAnim(Vector2 direction)
+    protected void ChangeAnim(Vector2 direction)
     {
         
         direction = direction.normalized;
