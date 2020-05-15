@@ -383,7 +383,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: ca495df187693ab42859ae0ccb3865fe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -482,6 +482,7 @@ MonoBehaviour:
   PlayerHealthSignal: {fileID: 11400000, guid: ccabd4cce9ba7304f8ac926484c43e2d, type: 2}
   playerInventory: {fileID: 11400000, guid: 5b60243fcf28f2c4fa2453a009428be7, type: 2}
   receivedItemSprite: {fileID: 8610881393648531737}
+  playerHit: {fileID: 11400000, guid: 96cd7f3625e95f149be2d262705eca0b, type: 2}
 --- !u!95 &2275579917710384879
 Animator:
   serializedVersion: 3
@@ -617,7 +618,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -700,7 +701,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -748,7 +749,7 @@ MonoBehaviour:
   signalEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2275579917710384876}
         m_MethodName: RaiseItem
         m_Mode: 1
         m_Arguments:

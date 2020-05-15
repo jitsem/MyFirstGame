@@ -10,12 +10,13 @@ public class PatrolLog : Log
     public float roundingDistance;
     protected override void CheckDistance()
     {
-        if (Vector3.Distance(target.position, transform.position) <= chaseRadius
-        && Vector3.Distance(target.position, transform.position) >= attackRadius)
+        if (Vector3.Distance(target.transform.position, transform.position) <= chaseRadius
+        && Vector3.Distance(target.transform.position, transform.position) >= attackRadius        
+        && target.GetComponent<PlayerMovement>().currentState != PlayerState.diying)
         {
             if (currentState == EnemyState.Idle || currentState == EnemyState.Walk)
             {
-                var temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+                var temp = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
                 ChangeAnim(temp - transform.position);
                 m_RigidBody.MovePosition(temp);
             }

@@ -9,6 +9,7 @@ public enum PlayerState
     attack,
     interact,
     stagger,
+    diying
 }
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,15 +21,18 @@ public class PlayerMovement : MonoBehaviour
     public Inventory playerInventory;
 
     public SpriteRenderer receivedItemSprite;
+    public Signal playerHit;
 
     private Rigidbody2D m_RidigBody;
     private Vector3 change;
     private Animator m_Animator;
+    private SpriteRenderer m_SpriteRender;
     // Start is called before the first frame update
     void Start()
     {
         m_RidigBody = GetComponent<Rigidbody2D>();
         m_Animator = GetComponent<Animator>();
+        m_SpriteRender = GetComponent<SpriteRenderer>();
         m_Animator.SetFloat("moveX", 0);
         m_Animator.SetFloat("moveY", -1);
         currentState = PlayerState.walk;
@@ -112,16 +116,42 @@ public class PlayerMovement : MonoBehaviour
     {
         currentHealth.runTimeValue -= damage;
         PlayerHealthSignal.Raise();
+        playerHit.Raise();
         if (currentHealth.runTimeValue > 0)
         {
             StartCoroutine(KnockCo(knockTime));
         }
         else
         {
-            this.gameObject.SetActive(false);
+            if (m_RidigBody != null)
+            {
+                m_RidigBody.velocity = Vector2.zero;
+                currentState = PlayerState.diying;
+            }
+            StartCoroutine(DieCo());
         }
 
     }
+
+    private IEnumerator DieCo()
+    {
+        var fade = 1f;
+        for (int i = 0; i < 400; i++)
+        {
+            fade = 1 - i / 400f;
+            if (fade <= 0f)
+            {
+                m_SpriteRender.material.SetFloat("_Fade", 0);
+                break;
+            }
+            m_SpriteRender.material.SetFloat("_Fade", fade);
+            yield return null;
+
+        }
+        yield return null;
+        this.gameObject.SetActive(false);
+    }
+
     private IEnumerator KnockCo(float knockTime)
     {
         if (m_RidigBody != null)
