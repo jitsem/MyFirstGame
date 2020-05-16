@@ -140,7 +140,9 @@ PolygonCollider2D:
       - {x: 0.32795405, y: 0.2773785}
       - {x: 0.44800568, y: 0.60645574}
       - {x: 0.9655038, y: 0.47988245}
-      - {x: 1.0009886, y: -0.51404375}
+      - {x: 1.1758003, y: 0.41250992}
+      - {x: 1.2920208, y: -0.19175148}
+      - {x: 1.1537743, y: -0.5819483}
       - {x: 0.77506185, y: -1.0183256}
       - {x: 0.34516358, y: -0.8036227}
 --- !u!114 &2275579917042573777
@@ -220,8 +222,9 @@ PolygonCollider2D:
       - {x: -0.3663993, y: 0.25633764}
       - {x: -0.5514426, y: 0.5538529}
       - {x: -0.86506486, y: 0.55352587}
-      - {x: -1.2467301, y: 0.014586121}
-      - {x: -1.2293589, y: -0.36675662}
+      - {x: -1.3995152, y: -0.0023899078}
+      - {x: -1.4160948, y: -0.4346609}
+      - {x: -1.2128344, y: -0.59972763}
       - {x: -0.96082234, y: -0.82895637}
       - {x: -0.4017923, y: -0.69841766}
 --- !u!114 &2275579917233705120
@@ -338,6 +341,7 @@ GameObject:
   - component: {fileID: 2275579917710384878}
   - component: {fileID: 4083337878561310877}
   - component: {fileID: 1800079301}
+  - component: {fileID: 1528180417}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -476,13 +480,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  speed: 15
+  speed: 10
   currentHealth: {fileID: 11400000, guid: 30aa1a1c0fdc4ee428e4bc77902aa23a, type: 2}
   startingPosition: {fileID: 11400000, guid: c2bbb38bb0c2eb3418266ae300e47828, type: 2}
   PlayerHealthSignal: {fileID: 11400000, guid: ccabd4cce9ba7304f8ac926484c43e2d, type: 2}
   playerInventory: {fileID: 11400000, guid: 5b60243fcf28f2c4fa2453a009428be7, type: 2}
   receivedItemSprite: {fileID: 8610881393648531737}
-  playerHit: {fileID: 11400000, guid: 96cd7f3625e95f149be2d262705eca0b, type: 2}
 --- !u!95 &2275579917710384879
 Animator:
   serializedVersion: 3
@@ -569,6 +572,54 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1528180417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2275579917710384865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: cb2674de242a61846a90c8ff0fe59341, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 768
+  m_IgnoreTag: 
+  m_UseImpactDirection: 0
+  m_ScaleImpactWithMass: 0
+  m_ScaleImpactWithSpeed: 0
 --- !u!1 &2917189936650744040
 GameObject:
   m_ObjectHideFlags: 0

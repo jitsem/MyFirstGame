@@ -45,7 +45,8 @@ public class EnemyDungeonRoom : DungeonRoom
             {
                 ChangeActivation(pots[i], true);
             }
-            virtualCamera.SetActive(true);
+            virtualCamera.gameObject.SetActive(true);
+            virtualCamera.MoveToTopOfPrioritySubqueue();
             CloseDoors();
         }
     }
@@ -62,8 +63,8 @@ public class EnemyDungeonRoom : DungeonRoom
             for (int i = 0; i < pots.Length; i++)
             {
                 ChangeActivation(pots[i], false);
-            }
-            virtualCamera.SetActive(false);
+            }            
+            virtualCamera.gameObject.SetActive(false);
         }
     }  
 }

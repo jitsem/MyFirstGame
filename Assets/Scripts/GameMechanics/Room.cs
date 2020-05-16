@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Room : MonoBehaviour
 {
     public Enemy[] enemies;
     public Pot[] pots;
-    public GameObject virtualCamera;
+    public CinemachineVirtualCamera virtualCamera;
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,7 +22,8 @@ public class Room : MonoBehaviour
             {
                 ChangeActivation(pots[i], true);
             }
-            virtualCamera.SetActive(true);
+            virtualCamera.gameObject.SetActive(true);
+            virtualCamera.MoveToTopOfPrioritySubqueue();
         }
     }
 
@@ -38,7 +40,7 @@ public class Room : MonoBehaviour
             {
                 ChangeActivation(pots[i], false);
             }
-            virtualCamera.SetActive(false);
+            virtualCamera.gameObject.SetActive(false);
         }
     }
 

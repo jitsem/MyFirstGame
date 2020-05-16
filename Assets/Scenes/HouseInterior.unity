@@ -4572,7 +4572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671356409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0, z: -10}
+  m_LocalPosition: {x: -0.0039372444, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4594,8 +4594,8 @@ MonoBehaviour:
   smoothing: 0
   minPosition: {x: 0, y: 0}
   maxPosition: {x: 0, y: 0}
-  camMin: {fileID: 11400000, guid: 993de7ef738301c419d0eebda7dc150a, type: 2}
-  camMax: {fileID: 11400000, guid: 56ed52623a7fa6e41b665ea793cf4a9a, type: 2}
+  camMin: {fileID: 0}
+  camMax: {fileID: 0}
 --- !u!114 &1671356414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5478,6 +5478,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room
       objectReference: {fileID: 0}
+    - target: {fileID: 9217357280835556944, guid: ba426ea9313b9154b9d622f4a20a2ca1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9217357280835556957, guid: ba426ea9313b9154b9d622f4a20a2ca1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5533,5 +5538,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9217357280835556958, guid: ba426ea9313b9154b9d622f4a20a2ca1,
+        type: 3}
+      propertyPath: virtualCamera
+      value: 
+      objectReference: {fileID: 9217357279858940776}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba426ea9313b9154b9d622f4a20a2ca1, type: 3}
+--- !u!114 &9217357279858940776 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9217357280697376895, guid: ba426ea9313b9154b9d622f4a20a2ca1,
+    type: 3}
+  m_PrefabInstance: {fileID: 9217357279858940775}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
