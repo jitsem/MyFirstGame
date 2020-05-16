@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour
     public Inventory playerInventory;
 
     public SpriteRenderer receivedItemSprite;
-    public Signal playerHit;
 
     private Rigidbody2D m_RidigBody;
     private Vector3 change;
@@ -116,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
     {
         currentHealth.runTimeValue -= damage;
         PlayerHealthSignal.Raise();
-        playerHit.Raise();
         if (currentHealth.runTimeValue > 0)
         {
             StartCoroutine(KnockCo(knockTime));

@@ -43,7 +43,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 102900000, guid: 89107cc2605483c48b5b01a23193806f, type: 3}
-    totalSpriteSurfaceArea: 540149
+    totalSpriteSurfaceArea: 540405
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
@@ -1120,6 +1120,7 @@ SpriteAtlas:
   - {fileID: -6960371683831875272, guid: 3928dbd0cc5576d4eb9c649a9703116a, type: 3}
   - {fileID: 6469460937200175538, guid: 3928dbd0cc5576d4eb9c649a9703116a, type: 3}
   - {fileID: 2924928888349640390, guid: 3928dbd0cc5576d4eb9c649a9703116a, type: 3}
+  - {fileID: 21300000, guid: 35a70cb1a50df074eb92f45db8176d95, type: 3}
   - {fileID: -790699523677361007, guid: 572f29e1e0da14a41b151275e73be1f5, type: 3}
   - {fileID: 8470420716495695676, guid: 572f29e1e0da14a41b151275e73be1f5, type: 3}
   - {fileID: 6167071470516247665, guid: 572f29e1e0da14a41b151275e73be1f5, type: 3}
@@ -2809,6 +2810,7 @@ SpriteAtlas:
   - Overworld_623
   - Overworld_673
   - Overworld_129
+  - leaf
   - character_14
   - character_15
   - character_16

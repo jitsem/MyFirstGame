@@ -7,8 +7,6 @@ public class Log : Enemy
     public GameObject target;
     public float chaseRadius;
     public float attackRadius;
-    public Transform homePosition;
-
     protected Animator m_Animator;
     protected Rigidbody2D m_RigidBody;
 

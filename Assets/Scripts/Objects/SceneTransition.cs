@@ -9,10 +9,6 @@ public class SceneTransition : MonoBehaviour
     public string sceneToLoad;
     public Vector2 playerPosition;
     public VectorValue playerPositionStorage;
-    public Vector2 cameraNewMin;
-    public Vector2 cameraNewMax;
-    public VectorValue cameraMin;
-    public VectorValue cameraMax;
 
     [Header("Transition Variables")]
     public GameObject fadeInPanel;
@@ -41,7 +37,6 @@ public class SceneTransition : MonoBehaviour
             var panel = Instantiate(fadeOutPanel, Vector3.zero, Quaternion.identity);            
         }
         yield return new WaitForSeconds(fadeWait);
-        ResetCamera();
         AsyncOperation asyncOp = SceneManager.LoadSceneAsync(sceneToLoad);
         while(!asyncOp.isDone)
         {
@@ -49,11 +44,4 @@ public class SceneTransition : MonoBehaviour
         }
     }
 
-    public void ResetCamera()
-    {
-        if(cameraMax == null || cameraMin == null)
-            return; //No camera reset needed
-        cameraMax.startValue = cameraNewMax;
-        cameraMin.startValue = cameraNewMin;
-    }
 }
