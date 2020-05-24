@@ -19,8 +19,8 @@ public class PlayerMovement : MonoBehaviour
     public VectorValue startingPosition;
     public Signal PlayerHealthSignal;
     public Inventory playerInventory;
-
     public SpriteRenderer receivedItemSprite;
+    public GameObject arrow;
 
     private Rigidbody2D m_RidigBody;
     private Vector3 change;
@@ -52,6 +52,12 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(AttackCo());
         }
+        else if (Input.GetButtonDown("SecondaryWeapon")
+        && currentState != PlayerState.attack
+        && currentState != PlayerState.stagger)
+        {
+            StartCoroutine(SecondaryAttackCo());
+        }
         else if (currentState == PlayerState.walk
         || currentState == PlayerState.idle)
         {
@@ -68,6 +74,22 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.33f);
         if (currentState != PlayerState.interact)
             currentState = PlayerState.walk;
+    }
+    private IEnumerator SecondaryAttackCo()
+    {
+        currentState = PlayerState.attack;
+        yield return null;
+        MakeArrow();
+        yield return new WaitForSeconds(0.33f);
+        if (currentState != PlayerState.interact)
+            currentState = PlayerState.walk;
+    }
+
+    private void MakeArrow()
+    {
+        Vector2 temp = new Vector2(m_Animator.GetFloat("moveX"), m_Animator.GetFloat("moveY")) * 5;
+        var arr = Instantiate(arrow, transform.position, Quaternion.identity).GetComponent<Arrow>();
+        arr.Launch(temp);
     }
 
     public void RaiseItem()

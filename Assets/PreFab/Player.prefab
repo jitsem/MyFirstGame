@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2275579916497130135}
   - component: {fileID: 2275579916497130134}
   - component: {fileID: 2275579916497130129}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: DownHitBox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 2275579917042573783}
   - component: {fileID: 2275579917042573782}
   - component: {fileID: 2275579917042573777}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RightHitBox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 2275579917233705126}
   - component: {fileID: 2275579917233705121}
   - component: {fileID: 2275579917233705120}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LeftHitBox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 2275579917615699122}
   - component: {fileID: 2275579917615699133}
   - component: {fileID: 2275579917615699132}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: UpHitBox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -342,7 +342,7 @@ GameObject:
   - component: {fileID: 4083337878561310877}
   - component: {fileID: 1800079301}
   - component: {fileID: 1528180417}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -486,6 +486,7 @@ MonoBehaviour:
   PlayerHealthSignal: {fileID: 11400000, guid: ccabd4cce9ba7304f8ac926484c43e2d, type: 2}
   playerInventory: {fileID: 11400000, guid: 5b60243fcf28f2c4fa2453a009428be7, type: 2}
   receivedItemSprite: {fileID: 8610881393648531737}
+  arrow: {fileID: 7885027489392627868, guid: ce58f22355cbc304db76a6aa7c747cee, type: 3}
 --- !u!95 &2275579917710384879
 Animator:
   serializedVersion: 3
@@ -630,7 +631,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8679112238527891852}
   - component: {fileID: 2321902480193017055}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ContextClue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -713,7 +714,7 @@ GameObject:
   - component: {fileID: 165736052912386480}
   - component: {fileID: 8610881393648531737}
   - component: {fileID: 3123409416136666234}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: ReceivedItem
   m_TagString: Untagged
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}

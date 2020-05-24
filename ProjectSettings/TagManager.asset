@@ -19,9 +19,9 @@ TagManager:
   - Enemy
   - EnemyProjectile
   - Camera
-  - 
-  - 
-  - 
+  - PlayerProjectile
+  - Player
+  - PathFinding
   - 
   - 
   - 

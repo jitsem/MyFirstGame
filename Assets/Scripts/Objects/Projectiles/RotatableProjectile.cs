@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RotatableProjectile : Projectile
 {
+    public float angleOffSet = 90;
     public override void Launch(Vector2 destination)
     {
         base.Launch(destination);
@@ -15,7 +16,7 @@ public class RotatableProjectile : Projectile
         if (destination != Vector2.zero)
         {
             float angle = Mathf.Atan2(destination.y, destination.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            transform.rotation = Quaternion.AngleAxis(angle - angleOffSet, Vector3.forward);
         }
     }
 }
